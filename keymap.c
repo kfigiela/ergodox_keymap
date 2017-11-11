@@ -152,11 +152,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // SYMBOLS
 [SYM2] = KEYMAP(
        // left hand
-       KC_TRNS,   KC_NO,         KC_NO,         KC_NO,        KC_NO,                KC_NO, KC_NO,
-       KC_TRNS,   RALT(KC_BSLS), RALT(KC_COMM), RALT(KC_DOT), RSFT(RALT(KC_BSLS)),  KC_NO, KC_NO,
-       KC_NO,     RALT(KC_A),    RALT(KC_EQL),  RALT(KC_S),   KC_NO,                KC_NO,
-       KC_NO,     RALT(KC_Z),    RALT(KC_X),    RALT(KC_C),   KC_NO,                KC_NO, KC_NO,
-       KC_TRNS,   KC_TRNS,       KC_TRNS,       KC_TRNS,      KC_TRNS,
+       KC_TRNS,   KC_NO,         KC_NO,         KC_NO,         KC_NO,                KC_NO, KC_NO,
+       KC_TRNS,   RALT(KC_BSLS), RALT(KC_COMM), RALT(KC_DOT),  RSFT(RALT(KC_BSLS)),  KC_NO, KC_NO,
+       KC_NO,     RALT(KC_A),    RALT(KC_EQL),  RALT(KC_S),    KC_NO,                KC_NO,
+       KC_NO,     RALT(KC_Z),    RALT(KC_X),    RALT(KC_C),    KC_NO,                KC_NO, KC_NO,
+       KC_TRNS,   KC_TRNS,       RALT(KC_LEFT), RALT(KC_RGHT), KC_TRNS,
                                         KC_TRNS,  KC_TRNS,
                                                   KC_TRNS,
                                KC_TRNS, KC_TRNS,  KC_TRNS,
@@ -165,7 +165,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_NO,   KC_NO,   RALT(KC_L),    RALT(KC_LBRC),        RSFT(RALT(KC_LBRC)), KC_NO,         KC_TRNS,
                 KC_NO,   RALT(KC_N),    RALT(KC_E),           KC_NO,               RALT(KC_O),    KC_NO,
        KC_NO,   KC_NO,   RALT(KC_MINS), RSFT(RALT(KC_MINS)),  RALT(KC_SCLN),       KC_NO,         KC_NO,
-                         KC_TRNS,       KC_TRNS,              KC_TRNS,             KC_TRNS,       KC_TRNS,
+                         RALT(KC_BSPC), RALT(KC_UP),          RALT(KC_DOWN),       KC_TRNS,       KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS
