@@ -40,7 +40,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // left hand
         KC_GRV,         KC_1,      KC_2,    KC_3,    KC_4,   KC_5,    KC_ENT,
         KC_TAB,         KC_Q,      KC_W,    KC_D,    KC_P,   KC_G,    KC_ESC,
-        LT(SYMB, KC_ESC),       KC_A,      KC_R,    KC_S,    KC_T,   KC_F,
+        LT(SYMB, KC_ESC),KC_A,      KC_R,    KC_S,    KC_T,   KC_F,
         MO(SYM2),        KC_Z,      KC_X,    KC_C,    KC_V,   KC_B,    MO(MDIA),
         KC_LCTL,        KC_LALT,   KC_LEFT, KC_RGHT, KC_SPC,
                                                      KC_LALT,   KC_NO,
@@ -135,7 +135,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |        |   «  |  ≤   |  ≥   |  »   |      |      |           |      |      |   ł  |   „  |   ”  |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |   ą  |  ≠   |  ś   |      |      |------|           |------|      |   ń  |   ę  |      |   ó  |        |
+ * |        |   ą  |  ≠   |  ś   |      |      |------|           |------|  ⌘ [ |   ń  |   ę  |  ⌘ ] |   ó  |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |   ź  |  ź   |  ć   |      |      |      |           |      |      |   –  |   —  |   …  |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -161,11 +161,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                   KC_TRNS,
                                KC_TRNS, KC_TRNS,  KC_TRNS,
        // right hand
-       KC_NO,   KC_NO,   KC_NO,         RALT(KC_RBRC),        RSFT(RALT(KC_RBRC)), KC_NO,         KC_TRNS,
-       KC_NO,   KC_NO,   RALT(KC_L),    RALT(KC_LBRC),        RSFT(RALT(KC_LBRC)), KC_NO,         KC_TRNS,
-                KC_NO,   RALT(KC_N),    RALT(KC_E),           KC_NO,               RALT(KC_O),    KC_NO,
-       KC_NO,   KC_NO,   RALT(KC_MINS), RSFT(RALT(KC_MINS)),  RALT(KC_SCLN),       KC_NO,         KC_NO,
-                         RALT(KC_BSPC), RALT(KC_UP),          RALT(KC_DOWN),       KC_TRNS,       KC_TRNS,
+       KC_NO,   KC_NO,         KC_NO,         RALT(KC_RBRC),        RSFT(RALT(KC_RBRC)), KC_NO,         KC_TRNS,
+       KC_NO,   KC_NO,         RALT(KC_L),    RALT(KC_LBRC),        RSFT(RALT(KC_LBRC)), KC_NO,         KC_TRNS,
+                RGUI(KC_LBRC), RALT(KC_N),    RALT(KC_E),           RGUI(KC_RBRC),       RALT(KC_O),    KC_NO,
+       KC_NO,   KC_NO,         RALT(KC_MINS), RSFT(RALT(KC_MINS)),  RALT(KC_SCLN),       KC_NO,         KC_NO,
+                               RALT(KC_BSPC), RALT(KC_UP),          RALT(KC_DOWN),       KC_TRNS,       KC_TRNS,
        KC_TRNS, KC_TRNS,
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS
@@ -221,8 +221,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |        |      |      |      |      |      |      |           |      | vol- | vol+ | mute |      |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |      |      |      |      |      |------|           |------| prev | play | next |      |      |        |
- * |--------+------+------+------+------+------|      |           | disp |------+------+------+------+------+--------|
- * |        |      |      |      |      |      |      |           |      | pralb|      | nxalb|      |      |        |
+ * |--------+------+------+------+------+------|      |           | play |------+------+------+------+------+--------|
+ * |        |      |      |      |      |      |      |           |      | pralb| nxalb| disp |      |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |      |      |      |      |      |                                       |      |   ,  |   .  |      |      |
  *   `----------------------------------'                                       `----------------------------------'
@@ -235,24 +235,50 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `--------------------'
  */
 // Denon
+
+
+#define DN_PWR     RSFT(RALT(KC_F8))
+#define DN_NETWORK RSFT(RCTL(KC_F6))
+#define DN_RADIO   RSFT(RCTL(KC_F5))
+#define DN_OPTICAL RSFT(RALT(KC_F4))
+#define DN_ANALOG1 RSFT(RCTL(KC_F3))
+#define DN_ANALOG2 RSFT(RALT(KC_F3))
+#define DN_CD      RSFT(RCTL(KC_F4))
+
+#define DN_VOLUP   RSFT(RCTL(KC_F12))
+#define DN_VOLDOWN RSFT(RCTL(KC_F11))
+#define DN_MUTE    RSFT(RCTL(KC_F10))
+
+#define DN_PLAY    RSFT(RCTL(KC_F8))
+#define DN_PREV    RSFT(RCTL(KC_F7))
+#define DN_NEXTALB RSFT(RALT(KC_F9))
+#define DN_PREVALB RSFT(RALT(KC_F7))
+#define DN_NEXT    RSFT(RCTL(KC_F9))
+#define DN_PLAY    RSFT(RCTL(KC_F8))
+
+#define DN_DISP    RSFT(RCTL(KC_F1))
+
+#define DISP_BRIGHTNESS_DOWN RALT(RCTL(KC_F1))
+#define DISP_BRIGHTNESS_UP   RALT(RCTL(KC_F2))
+
 [DENON] = KEYMAP(
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
     KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-                RALT(RCTL(KC_F1)), RALT(RCTL(KC_F2)),
+                DISP_BRIGHTNESS_DOWN, DISP_BRIGHTNESS_UP,
                                                KC_NO,
                                  KC_NO, KC_NO, KC_NO,
 // right hand
-    RSFT(RALT(KC_F8)), RSFT(RCTL(KC_F6)), RSFT(RCTL(KC_F5)), RSFT(RALT(KC_F4)), RSFT(RCTL(KC_F3)), RSFT(RALT(KC_F3)), RSFT(RCTL(KC_F4)),
-    KC_NO,    RSFT(RCTL(KC_F11)), RSFT(RCTL(KC_F12)), RSFT(RCTL(KC_F10)),   KC_NO, KC_NO, KC_NO,
-              RSFT(RCTL(KC_F7)), RSFT(RCTL(KC_F8)), RSFT(RCTL(KC_F9)),   KC_NO, KC_NO, KC_NO,
-    RSFT(RCTL(KC_F1)),     RSFT(RALT(KC_F7)), KC_NO, RSFT(RALT(KC_F9)),   KC_NO, KC_NO, KC_NO,
-                     KC_NO,  KC_NO,   KC_NO, KC_NO, KC_NO,
-    KC_NO, KC_NO,
+    DN_PWR,  DN_NETWORK,   DN_RADIO,   DN_OPTICAL, DN_ANALOG1, DN_ANALOG2, DN_CD,
+    KC_NO,   DN_VOLDOWN,   DN_VOLUP,   DN_MUTE,    KC_NO,      KC_NO,      KC_NO,
+             DN_PREV,      DN_NEXT,    KC_NO,      KC_NO,      KC_NO,      KC_NO,
+    DN_PLAY, DN_PREVALB,   DN_NEXTALB, DN_DISP,    KC_NO,      KC_NO,     KC_NO,
+    KC_NO,   KC_NO,        KC_NO,      KC_NO,      KC_NO,
+    KC_NO,   KC_NO,
     KC_NO,
-    KC_NO, KC_NO, KC_NO
+    KC_NO,   KC_NO,        KC_NO
 ),
 };
 
