@@ -4,8 +4,9 @@
 #include QMK_KEYBOARD_CONFIG_H
 
 #undef TAPPING_TERM
-#define TAPPING_TERM 150
+#define TAPPING_TERM 80
 
 #define PERMISSIVE_HOLD
+#undef IGNORE_MOD_TAP_INTERRUPT
 
 #endif

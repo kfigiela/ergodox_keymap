@@ -8,6 +8,7 @@
 #define SYM2  2
 #define MDIA  3 // media keys
 #define DENON 4
+#define KEYMAP LAYOUT_ergodox
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
@@ -38,9 +39,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [BASE] = KEYMAP(  // layer 0 : default
         // left hand
-        KC_GRV,         KC_1,      KC_2,    KC_3,    KC_4,   KC_5,    KC_ENT,
+        KC_GRV,         KC_1,      KC_2,    KC_3,    KC_4,   KC_5,    KC_BTN1,
         KC_TAB,         KC_Q,      KC_W,    KC_D,    KC_P,   KC_G,    KC_ESC,
-        LT(SYMB, KC_ESC),KC_A,      KC_R,    KC_S,    KC_T,   KC_F,
+        /* LT(SYMB, KC_ESC) */ MO(SYMB), KC_A,      KC_R,    KC_S,    KC_T,   KC_F,
         MO(SYM2),        KC_Z,      KC_X,    KC_C,    KC_V,   KC_B,    MO(MDIA),
         KC_LCTL,        KC_LALT,   KC_LEFT, KC_RGHT, KC_SPC,
                                                      KC_LALT,   KC_NO,
@@ -133,9 +134,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |      |      |      |      |      |      |           |      |      |      |   ‚  |   ’  |      |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * |        |   «  |  ≤   |  ≥   |  »   |      |      |           |      |      |   ł  |   „  |   ”  |      |        |
+ * |        |  ⌘ [ |  ⌘ ] |  ≥   |  »   |      |      |           |      |      |   ł  |   „  |   ”  |      |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |   ą  |  ≠   |  ś   |      |      |------|           |------|  ⌘ [ |   ń  |   ę  |  ⌘ ] |   ó  |        |
+ * |        |   ą  |  ≠   |  ś   |      |      |------|           |------|  «   |   ń  |   ę  |   ≤  |   ó  |        |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |   ź  |  ź   |  ć   |      |      |      |           |      |      |   –  |   —  |   …  |      |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -153,7 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [SYM2] = KEYMAP(
        // left hand
        KC_TRNS,   KC_NO,         KC_NO,         KC_NO,         KC_NO,                KC_NO, KC_NO,
-       KC_TRNS,   RALT(KC_BSLS), RALT(KC_COMM), RALT(KC_DOT),  RSFT(RALT(KC_BSLS)),  KC_NO, KC_NO,
+       KC_TRNS,   RGUI(KC_LBRC), RGUI(KC_RBRC), RALT(KC_DOT),  RSFT(RALT(KC_BSLS)),  KC_NO, KC_NO,
        KC_NO,     RALT(KC_A),    RALT(KC_EQL),  RALT(KC_S),    KC_NO,                KC_NO,
        KC_NO,     RALT(KC_Z),    RALT(KC_X),    RALT(KC_C),    KC_NO,                KC_NO, KC_NO,
        KC_TRNS,   KC_TRNS,       RALT(KC_LEFT), RALT(KC_RGHT), KC_TRNS,
@@ -163,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        // right hand
        KC_NO,   KC_NO,         KC_NO,         RALT(KC_RBRC),        RSFT(RALT(KC_RBRC)), KC_NO,         KC_TRNS,
        KC_NO,   KC_NO,         RALT(KC_L),    RALT(KC_LBRC),        RSFT(RALT(KC_LBRC)), KC_NO,         KC_TRNS,
-                RGUI(KC_LBRC), RALT(KC_N),    RALT(KC_E),           RGUI(KC_RBRC),       RALT(KC_O),    KC_NO,
+                RALT(KC_BSLS), RALT(KC_N),    RALT(KC_E),           RALT(KC_COMM),       RALT(KC_O),    KC_NO,
        KC_NO,   KC_NO,         RALT(KC_MINS), RSFT(RALT(KC_MINS)),  RALT(KC_SCLN),       KC_NO,         KC_NO,
                                RALT(KC_BSPC), RALT(KC_UP),          RALT(KC_DOWN),       KC_TRNS,       KC_TRNS,
        KC_TRNS, KC_TRNS,
