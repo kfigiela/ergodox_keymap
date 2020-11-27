@@ -9,4 +9,6 @@
 #define PERMISSIVE_HOLD
 #undef IGNORE_MOD_TAP_INTERRUPT
 
+#define QMK_KEYS_PER_SCAN 4
+
 #endif

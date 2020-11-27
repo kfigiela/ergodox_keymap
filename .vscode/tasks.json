@@ -6,10 +6,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "docker run -e keymap=dktn -e keyboard=ergodox_ez --rm -v $('pwd')/../../../..:/qmk:rw edasque/qmk_firmware",
-            "problemMatcher": [
-                "$gcc"
-            ],
+            "command": "cd ../../../.. && util/docker_build.sh ergodox_ez:dktn",
             "group": {
                 "kind": "build",
                 "isDefault": true
